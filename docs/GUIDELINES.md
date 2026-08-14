@@ -70,12 +70,6 @@
 
 ---
 
-### Documentation
-
-1. Use JSDoc style comments to document components, functions and types
-
----
-
 ### Strings
 
 1. Use single quotes for strings

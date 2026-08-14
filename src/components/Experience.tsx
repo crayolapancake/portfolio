@@ -72,7 +72,7 @@ const experiences: ExperienceEntry[] = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="scroll-mt-20 px-6 py-24">
+    <section id="experience" className="scroll-mt-20 px-6 py-12">
       <div className="mx-auto max-w-2xl">
         <SectionHeading eyebrow="Experience" title="Career history" />
         {/* TODO: add screenshots of work for each role */}
@@ -110,9 +110,6 @@ const Experience = () => {
             );
           })}
         </div>
-        <p className="mt-10 text-center text-sm text-muted-foreground">
-          Pre-2018, roles in B2B sales and retail management.
-        </p>
       </div>
     </section>
   );

@@ -15,6 +15,10 @@ const initialValues: ContactFormValues = { name: "", email: "", message: "" };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const contactEmail = "jemjo@hotmail.co.uk";
+
+const getErrorId = (field: keyof ContactFormValues) => `${field}-error`;
+
 const validate = (values: ContactFormValues): ContactFormErrors => {
   const errors: ContactFormErrors = {};
   if (!values.name.trim()) errors.name = "Name is required";
@@ -25,6 +29,13 @@ const validate = (values: ContactFormValues): ContactFormErrors => {
   }
   if (!values.message.trim()) errors.message = "Message is required";
   return errors;
+};
+
+const buildMailtoHref = (values: ContactFormValues) => {
+  const subject = `Portfolio contact from ${values.name}`;
+  const body = `${values.message}\n\n— ${values.name} (${values.email})`;
+  const params = new URLSearchParams({ subject, body });
+  return `mailto:${contactEmail}?${params.toString()}`;
 };
 
 const fieldClasses =
@@ -43,9 +54,15 @@ const FormField = ({ id, label, error, children }: FormFieldProps) => (
       {label}
     </label>
     {children}
-    {error && <span className="text-sm text-red-500">{error}</span>}
+    {error && (
+      <span id={getErrorId(id)} className="text-sm text-destructive">
+        {error}
+      </span>
+    )}
   </div>
 );
+
+// TODO improve mailing, mail to client isnt always set up
 
 const ContactForm = () => {
   const [values, setValues] = useState<ContactFormValues>(initialValues);
@@ -54,9 +71,9 @@ const ContactForm = () => {
 
   const handleChange =
     (field: keyof ContactFormValues) =>
-    (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setValues(prev => ({ ...prev, [field]: event.target.value }));
-    };
+      (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setValues(prev => ({ ...prev, [field]: event.target.value }));
+      };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -64,15 +81,15 @@ const ContactForm = () => {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
 
-    // TODO: wire up actual delivery to jemjo@hotmail.co.uk - decide between
-    // a mailto: link and a form service (e.g. Web3Forms) per PRD R1
+    window.location.href = buildMailtoHref(values);
     setSubmitted(true);
   };
 
   if (submitted) {
     return (
-      <p className="text-muted-foreground">
-        Thanks for reaching out — I&apos;ll get back to you soon.
+      <p role="status" aria-live="polite" className="text-muted-foreground">
+        Thanks for reaching out — your email client should have opened with
+        your message ready to send.
       </p>
     );
   }
@@ -90,6 +107,7 @@ const ContactForm = () => {
           value={values.name}
           onChange={handleChange("name")}
           aria-invalid={Boolean(errors.name)}
+          aria-describedby={errors.name ? getErrorId("name") : undefined}
           className={fieldClasses}
         />
       </FormField>
@@ -101,6 +119,7 @@ const ContactForm = () => {
           value={values.email}
           onChange={handleChange("email")}
           aria-invalid={Boolean(errors.email)}
+          aria-describedby={errors.email ? getErrorId("email") : undefined}
           className={fieldClasses}
         />
       </FormField>
@@ -112,11 +131,12 @@ const ContactForm = () => {
           value={values.message}
           onChange={handleChange("message")}
           aria-invalid={Boolean(errors.message)}
+          aria-describedby={errors.message ? getErrorId("message") : undefined}
           className={`resize-none ${fieldClasses}`}
         />
       </FormField>
 
-      <button type="submit" className={`mt-2 self-start ${primaryButtonClasses}`}>
+      <button type="submit" className={`mt-2 self-center ${primaryButtonClasses}`}>
         Send message
       </button>
     </form>

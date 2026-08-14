@@ -6,7 +6,7 @@ import SectionHeading from "@/components/SectionHeading";
 const Home = () => {
   return (
     <>
-      <section className="flex flex-col items-center gap-4 bg-background px-6 pt-16 pb-24 text-center">
+      <section className="flex flex-col items-center gap-4 bg-background px-6 pt-16 pb-12 text-center">
         <Image
           src="/avatar.svg"
           alt="Illustrated avatar of Jemma Johnston"
@@ -28,7 +28,7 @@ const Home = () => {
 
       <section
         id="about"
-        className="flex flex-col items-center gap-4 px-6 py-24 text-center scroll-mt-20"
+        className="flex flex-col items-center gap-4 px-6 py-12 text-center scroll-mt-20"
       >
         <SectionHeading eyebrow="About me" title="About" />
         <p className="max-w-2xl text-muted-foreground">
@@ -43,7 +43,7 @@ const Home = () => {
 
       <section
         id="contact"
-        className="flex min-h-screen scroll-mt-20 flex-col items-center justify-center gap-4 px-6 text-center"
+        className="flex scroll-mt-20 flex-col items-center gap-4 px-6 py-12 text-center"
       >
         <SectionHeading eyebrow="Get in touch" title="Contact" />
         <ContactForm />
