@@ -13,9 +13,9 @@ const experiences: ExperienceEntry[] = [
     role: "Senior Mobile Engineer",
     dates: "2026",
     highlights: [
-      "Led a React Native / Expo app for on-site risk assessments end-to-end",
+      "Led a React Native / Expo / Typescript app for on-site risk assessments end-to-end",
       "Owned architecture, offline-first support, and the EAS release pipeline",
-      "Introduced agentic AI tooling (Claude) to boost delivery speed",
+      "Used agentic AI tooling to boost delivery speed",
     ],
   },
   {
@@ -35,7 +35,7 @@ const experiences: ExperienceEntry[] = [
     highlights: [
       "Integrated payments under strict CDD/KYC compliance",
       "Shipped a rewards scheme, social features, and a non-custodial wallet",
-      "Owned release management and production hotfixes",
+      "Owned release management and deployed hotfixes in production",
     ],
   },
   {
@@ -43,7 +43,7 @@ const experiences: ExperienceEntry[] = [
     role: "Mobile Engineer",
     dates: "Sep 2021 - 2022",
     highlights: [
-      "Built new features from high-fidelity designs, including push & geofencing",
+      "Built new features from high-fidelity designs, including notifications, sports UI and geofencing",
       "Deployed via CI/CD and released to the app stores",
       "Kept parity between the web and mobile apps",
     ],
@@ -54,7 +54,7 @@ const experiences: ExperienceEntry[] = [
     dates: "2020 - 2021",
     highlights: [
       "Sole mobile engineer from client pitch through to delivery",
-      "Built MVP apps in React Native for multiple clients",
+      "Built MVP apps in React Native and React web for multiple clients",
       "Managed scheduling, estimates, and client communication",
     ],
   },
@@ -63,9 +63,9 @@ const experiences: ExperienceEntry[] = [
     role: "Frontend Developer",
     dates: "2018 - 2020",
     highlights: [
-      "Sole engineer on an AI-powered mental health app",
+      "Sole frontend engineer on an AI-powered mental health app",
       "Owned the UI, data handling, and Firebase architecture",
-      "Shipped to iOS and Android; ran user research",
+      "Shipped a React Native app to iOS and Android; ran user research",
     ],
   },
 ];
