@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import Image from "next/image";
-import SectionHeading from "@/components/SectionHeading";
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import Image from 'next/image';
+import SectionHeading from '@/components/SectionHeading';
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const t = await getTranslations("afterHours");
-  return { title: t("metadataTitle"), description: t("metadataDescription") };
+  const t = await getTranslations('afterHours');
+  return { title: t('metadataTitle'), description: t('metadataDescription') };
 };
 
 interface Project {
@@ -15,17 +15,17 @@ interface Project {
 }
 
 const projects: Project[] = [
-  { id: "stow", href: "https://www.stow.scot/", imageSrc: "/stow-banner.jpg" },
-  { id: "bothan" },
+  { id: 'stow', href: 'https://www.stow.scot/', imageSrc: '/stow-banner.jpg' },
+  { id: 'bothan' },
 ];
 
 const AfterHours = async () => {
-  const t = await getTranslations("afterHours");
+  const t = await getTranslations('afterHours');
 
   return (
-    <section className="px-6 py-16">
+    <section className="px-6 py-12">
       <div className="mx-auto max-w-2xl">
-        <SectionHeading eyebrow={t("eyebrow")} title={t("title")} />
+        <SectionHeading eyebrow={t('eyebrow')} title={t('title')} />
         <ul className="mt-12 flex flex-col gap-6">
           {projects.map(project => (
             <li
@@ -56,8 +56,8 @@ const AfterHours = async () => {
                     rel="noreferrer"
                     className="mt-3 inline-block text-sm font-medium text-primary hover:underline"
                   >
-                    {t("visitSite")}
-                    <span className="sr-only"> {t("opensInNewTab")}</span>
+                    {t('visitSite')}
+                    <span className="sr-only"> {t('opensInNewTab')}</span>
                   </a>
                 )}
               </div>

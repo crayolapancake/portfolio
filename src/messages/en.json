@@ -26,6 +26,8 @@
   "experience": {
     "eyebrow": "Experience",
     "title": "Career history",
+    "viewScreenshot": "View larger: {alt}",
+    "closeScreenshot": "Close",
     "items": {
       "keyholding": {
         "company": "The Keyholding Company",
@@ -45,7 +47,12 @@
           "Owned two React Native / Expo apps in a Yarn Workspaces monorepo",
           "Shipped estimate management, room scanning, and offline-first support",
           "Improved Azure, Expo, and Firebase deployment pipelines"
-        ]
+        ],
+        "screenshots": {
+          "repairArea": "Fixzy app measuring a damaged ceiling repair area in augmented reality",
+          "roomScan": "Fixzy app scanning a room in augmented reality to capture its dimensions",
+          "estimate": "Fixzy app estimate screen listing rooms, repair areas, and a total cost"
+        }
       },
       "token": {
         "company": "Token.com",
@@ -55,7 +62,12 @@
           "Integrated payments under strict CDD/KYC compliance",
           "Shipped a rewards scheme, social features, and a non-custodial wallet",
           "Owned release management and deployed hotfixes in production"
-        ]
+        ],
+        "screenshots": {
+          "wallet": "Token.com app wallet screen showing balance and token holdings",
+          "tokenPage": "Token.com app token page with price chart and buy and sell buttons",
+          "video": "Token.com app video feed with in-line buy and sell for the featured token"
+        }
       },
       "spotlight": {
         "company": "Spotlight Sports Group",
@@ -65,7 +77,12 @@
           "Built new features from high-fidelity designs, including notifications, sports UI and geofencing",
           "Deployed via CI/CD and released to the app stores",
           "Kept parity between the web and mobile apps"
-        ]
+        ],
+        "screenshots": {
+          "picks": "Pickswise app showing expert betting picks for a college football game",
+          "odds": "Pickswise app comparing odds for a single bet across several sportsbooks",
+          "parlays": "Pickswise app showing a three-game college basketball parlay with payout"
+        }
       },
       "swarm": {
         "company": "SwarmOnline",
