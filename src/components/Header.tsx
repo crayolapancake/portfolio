@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, type KeyboardEvent } from 'react';
+import { useRef } from 'react';
 import { primaryButtonClasses } from '@/lib/styles';
 
 const navLinks = [
@@ -14,17 +14,13 @@ const navLinks = [
 
 const Header = () => {
   const t = useTranslations('header');
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const closeMenu = () => setIsMenuOpen(false);
-  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-    if (event.key === 'Escape') closeMenu();
-  };
+  const closeMenu = () => dialogRef.current?.close();
 
   return (
     <>
       <header
-        onKeyDown={handleKeyDown}
         className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur"
       >
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
@@ -56,9 +52,8 @@ const Header = () => {
 
           <button
             type="button"
-            onClick={() => setIsMenuOpen(true)}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-nav"
+            onClick={() => dialogRef.current?.showModal()}
+            aria-haspopup="dialog"
             className="inline-flex items-center justify-center rounded-md p-2 text-foreground md:hidden"
           >
             <span className="sr-only">{t('openMenu')}</span>
@@ -77,24 +72,19 @@ const Header = () => {
           </button>
         </div>
       </header>
-
-      {/* Drawer sits outside the header: its backdrop-blur would trap position: fixed children */}
-      <div
-        aria-hidden="true"
-        onClick={closeMenu}
-        className={`fixed inset-0 z-[60] bg-black/50 transition-opacity duration-300 md:hidden ${
-          isMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
-        }`}
-      />
-      <nav
+      
+      <dialog
+        ref={dialogRef}
         id="mobile-nav"
-        onKeyDown={handleKeyDown}
-        className={`fixed inset-y-0 right-0 z-[70] flex w-72 max-w-[80vw] flex-col gap-4 border-l border-border bg-background px-6 py-4 text-sm font-medium text-muted-foreground shadow-xl transition-[translate,visibility] duration-300 md:hidden ${
-          isMenuOpen ? 'visible translate-x-0' : 'invisible translate-x-full'
-        }`}
+        aria-label={t('menu')}
+        onClick={event => {
+          if (event.target === event.currentTarget) closeMenu();
+        }}
+        className="m-0 ml-auto hidden h-dvh max-h-none w-72 max-w-[80vw] translate-x-full flex-col gap-4 border-l border-border bg-background px-6 py-4 text-sm font-medium text-muted-foreground shadow-xl transition-[translate,display,overlay] transition-discrete duration-300 backdrop:bg-black/50 open:flex open:translate-x-0 open:starting:translate-x-full md:hidden!"
       >
         <button
           type="button"
+          autoFocus
           onClick={closeMenu}
           className="-mr-2 inline-flex items-center justify-center self-end rounded-md p-2 text-foreground"
         >
@@ -129,7 +119,7 @@ const Header = () => {
         >
           {t('contact')}
         </Link>
-      </nav>
+      </dialog>
     </>
   );
 };
