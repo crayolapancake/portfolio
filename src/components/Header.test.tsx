@@ -1,68 +1,63 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
-import Header from "./Header";
+import { screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { describe, expect, it } from 'vitest';
+import renderWithIntl from '@/test/renderWithIntl';
+import Header from './Header';
 
-describe("Header", () => {
-  it("renders the site name and nav links", () => {
-    render(<Header />);
+const getMenu = () => document.getElementById('mobile-nav') as HTMLDialogElement;
 
-    expect(screen.getByText("Jemma Johnston")).toBeInTheDocument();
-    expect(screen.getAllByRole("link", { name: "About" })[0]).toHaveAttribute(
-      "href",
-      "#about",
-    );
-    expect(
-      screen.getAllByRole("link", { name: "Experience" })[0],
-    ).toHaveAttribute("href", "#experience");
-    expect(
-      screen.getAllByRole("link", { name: "Get in touch" })[0],
-    ).toHaveAttribute("href", "#contact");
+describe('Header', () => {
+  it('renders the site name and nav links', () => {
+    renderWithIntl(<Header />);
+
+    expect(screen.getByRole('link', { name: 'Jemma Johnston' })).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/#about');
+    expect(screen.getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '/#experience');
+    expect(screen.getByRole('link', { name: 'After Hours' })).toHaveAttribute('href', '/after-hours');
+    expect(screen.getByRole('link', { name: 'Get in touch' })).toHaveAttribute('href', '/#contact');
   });
 
-  it("opens and closes the mobile menu when the toggle is clicked", async () => {
+  it('keeps the mobile menu hidden until the toggle is clicked', async () => {
     const user = userEvent.setup();
-    render(<Header />);
+    renderWithIntl(<Header />);
 
-    const toggle = screen.getByRole("button", { name: "Open menu" });
-    expect(toggle).toHaveAttribute("aria-expanded", "false");
-    expect(screen.queryByRole("navigation", { name: "" })).toBeTruthy();
-    expect(document.getElementById("mobile-nav")).not.toBeInTheDocument();
+    expect(screen.queryByRole('dialog', { name: 'Menu' })).not.toBeInTheDocument();
 
-    await user.click(toggle);
+    await user.click(screen.getByRole('button', { name: 'Open menu' }));
 
-    expect(
-      screen.getByRole("button", { name: "Close menu" }),
-    ).toHaveAttribute("aria-expanded", "true");
-    expect(document.getElementById("mobile-nav")).toBeInTheDocument();
-
-    await user.click(screen.getByRole("button", { name: "Close menu" }));
-
-    expect(document.getElementById("mobile-nav")).not.toBeInTheDocument();
+    const menu = screen.getByRole('dialog', { name: 'Menu' });
+    expect(within(menu).getByRole('link', { name: 'About' })).toBeInTheDocument();
+    expect(within(menu).getByRole('link', { name: 'After Hours' })).toBeInTheDocument();
   });
 
-  it("closes the mobile menu after a nav link is clicked", async () => {
+  it('closes the mobile menu with the close button', async () => {
     const user = userEvent.setup();
-    render(<Header />);
+    renderWithIntl(<Header />);
 
-    await user.click(screen.getByRole("button", { name: "Open menu" }));
-    const mobileNav = document.getElementById("mobile-nav");
-    expect(mobileNav).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Open menu' }));
+    await user.click(screen.getByRole('button', { name: 'Close menu' }));
 
-    const mobileAboutLink = screen.getAllByRole("link", { name: "About" })[1];
-    await user.click(mobileAboutLink);
-
-    expect(document.getElementById("mobile-nav")).not.toBeInTheDocument();
+    expect(screen.queryByRole('dialog', { name: 'Menu' })).not.toBeInTheDocument();
   });
 
-  it("closes the mobile menu after the mobile CTA is clicked", async () => {
+  it('closes the mobile menu when the backdrop is clicked', async () => {
     const user = userEvent.setup();
-    render(<Header />);
+    renderWithIntl(<Header />);
 
-    await user.click(screen.getByRole("button", { name: "Open menu" }));
-    const mobileCta = screen.getAllByRole("link", { name: "Get in touch" })[1];
-    await user.click(mobileCta);
+    await user.click(screen.getByRole('button', { name: 'Open menu' }));
+    await user.click(getMenu());
 
-    expect(document.getElementById("mobile-nav")).not.toBeInTheDocument();
+    expect(screen.queryByRole('dialog', { name: 'Menu' })).not.toBeInTheDocument();
+  });
+
+  it('closes the mobile menu after a menu link is clicked', async () => {
+    const user = userEvent.setup();
+    renderWithIntl(<Header />);
+
+    await user.click(screen.getByRole('button', { name: 'Open menu' }));
+    const menu = screen.getByRole('dialog', { name: 'Menu' });
+    await user.click(within(menu).getByRole('link', { name: 'About' }));
+
+    expect(screen.queryByRole('dialog', { name: 'Menu' })).not.toBeInTheDocument();
   });
 });

@@ -70,6 +70,27 @@
 
 ---
 
+### Spacing
+
+Use Tailwind's spacing scale, and only the steps below. Pick by role, not by eye.
+
+| Step | Size | Use for |
+|------|------|---------|
+| `1`, `1.5` | 4–6px | Tight pairs (icon + label, list items) |
+| `2`, `2.5` | 8–10px | Heading to its content, vertical padding of buttons and inputs |
+| `3`–`4` | 12–16px | Related elements within a block, gaps in a row, horizontal padding of inputs and pills |
+| `5` | 20px | Horizontal padding of buttons |
+| `6` | 24px | Space after a block (e.g. a row of images), horizontal page padding |
+| `10` | 40px | Between timeline or list entries |
+| `12` | 48px | Section top/bottom padding (all sections), heading to content |
+| `16`–`20` | 64–80px | Page-level offsets (below the header) |
+
+1. Do not use arbitrary values (e.g. `mt-[13px]`) for spacing
+2. Prefer `gap` and `space-y` on the parent over margins on each child
+3. Add a new step to this table before using it
+
+---
+
 ### Strings
 
 1. Use single quotes for strings
