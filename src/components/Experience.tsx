@@ -12,7 +12,7 @@ const Experience = async () => {
   const t = await getTranslations('experience');
 
   return (
-    <section id="experience" className="scroll-mt-20 px-6 py-12">
+    <section id="experience" className="scroll-mt-20 px-6 pt-12">
       <div className="mx-auto max-w-2xl">
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} />
         <div className="mt-12 flex flex-col">

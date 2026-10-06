@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState, type KeyboardEvent } from 'react';
 import { primaryButtonClasses } from '@/lib/styles';
@@ -27,7 +28,14 @@ const Header = () => {
         className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur"
       >
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <Link href="/" className="text-lg font-semibold tracking-tight text-foreground">
+          <Link href="/" className="flex items-center gap-3 text-lg font-semibold tracking-tight text-foreground">
+            <Image
+              src="/avatar.svg"
+              alt=""
+              width={32}
+              height={32}
+              className="rounded-full border border-border bg-card"
+            />
             {t('name')}
           </Link>
 

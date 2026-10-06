@@ -13,7 +13,7 @@
     "closeMenu": "Close menu"
   },
   "home": {
-    "avatarAlt": "Illustrated avatar of Jemma Johnston",
+    "avatarAlt": "Photo of Jemma Johnston",
     "badge": "Frontend & Mobile Developer",
     "name": "Jemma Johnston",
     "tagline": "Specialist in cross-platform mobile development",
@@ -37,7 +37,12 @@
           "Led a React Native / Expo / Typescript app for on-site risk assessments end-to-end",
           "Owned architecture, offline-first support, and the EAS release pipeline",
           "Used agentic AI tooling to boost delivery speed"
-        ]
+        ],
+        "screenshots": {
+          "dashboard": "TKC Risk Assessment app dashboard showing due and complete assessment counts",
+          "briefing": "TKC Risk Assessment app pre-assessment briefing explaining what the assessor will be asked to do",
+          "assessment": "TKC Risk Assessment app assessment checklist grouped by section with a progress bar"
+        }
       },
       "fixzy": {
         "company": "Fixzy",
@@ -102,7 +107,12 @@
           "Sole frontend engineer on an AI-powered mental health app",
           "Owned the UI, data handling, and Firebase architecture",
           "Shipped a React Native app to iOS and Android; ran user research"
-        ]
+        ],
+        "screenshots": {
+          "programmes": "Allichat home screen showing a welcome message, the current session and the Exam Stress programme",
+          "home": "Allichat home screen with a mood picker, favourite programmes and programmes to explore",
+          "activities": "Allichat activities screen listing a three minute breathing space and a full body scan"
+        }
       }
     }
   },
@@ -116,12 +126,12 @@
     "projects": {
       "stow": {
         "name": "Stow community website",
-        "description": "The website for the town where I live, built in squarespace as a volunteer for the local community.",
+        "description": "Community website for my hometown, built with a team of volunteers in Squarespace.",
         "imageAlt": "Stow & Fountainhall logo over a photo of the village church among autumn trees"
       },
       "bothan": {
         "name": "Bothan",
-        "description": "A mobile app for finding bothies, the remote, free-to-use shelters for hikers and travellers in the UK and Ireland. Built with Expo, Expo Router and NativeWind. Just getting started."
+        "description": "A mobile app for finding bothies; the remote, free-to-use shelters for hikers in Scotland. Built with Expo, Expo Router and NativeWind. Just getting started."
       }
     }
   },
