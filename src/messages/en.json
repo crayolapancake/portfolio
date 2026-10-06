@@ -1,0 +1,124 @@
+{
+  "metadata": {
+    "title": "Jemma Johnston — Frontend & Mobile Developer",
+    "description": "Portfolio of Jemma Johnston, a senior frontend engineer specialising in cross-platform mobile development with React Native and Expo."
+  },
+  "header": {
+    "name": "Jemma Johnston",
+    "about": "About",
+    "experience": "Experience",
+    "afterHours": "After Hours",
+    "contact": "Get in touch",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "home": {
+    "avatarAlt": "Illustrated avatar of Jemma Johnston",
+    "badge": "Frontend & Mobile Developer",
+    "name": "Jemma Johnston",
+    "tagline": "Specialist in cross-platform mobile development",
+    "aboutEyebrow": "About me",
+    "aboutTitle": "About",
+    "aboutBody": "Senior frontend engineer with 8 years of experience building mobile apps in React Native and Expo with JavaScript and TypeScript. Skilled in collaboration with cross-functional teams and end-to-end delivery of production apps.",
+    "contactEyebrow": "Get in touch",
+    "contactTitle": "Contact"
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "title": "Career history",
+    "items": {
+      "keyholding": {
+        "company": "The Keyholding Company",
+        "role": "Senior Mobile Engineer",
+        "dates": "2026 - Present",
+        "highlights": [
+          "Led a React Native / Expo / Typescript app for on-site risk assessments end-to-end",
+          "Owned architecture, offline-first support, and the EAS release pipeline",
+          "Used agentic AI tooling to boost delivery speed"
+        ]
+      },
+      "fixzy": {
+        "company": "Fixzy",
+        "role": "Senior Mobile Engineer",
+        "dates": "2025 - 2026",
+        "highlights": [
+          "Owned two React Native / Expo apps in a Yarn Workspaces monorepo",
+          "Shipped estimate management, room scanning, and offline-first support",
+          "Improved Azure, Expo, and Firebase deployment pipelines"
+        ]
+      },
+      "token": {
+        "company": "Token.com",
+        "role": "Mobile Engineer",
+        "dates": "2022 - 2024",
+        "highlights": [
+          "Integrated payments under strict CDD/KYC compliance",
+          "Shipped a rewards scheme, social features, and a non-custodial wallet",
+          "Owned release management and deployed hotfixes in production"
+        ]
+      },
+      "spotlight": {
+        "company": "Spotlight Sports Group",
+        "role": "Mobile Engineer",
+        "dates": "2021 - 2022",
+        "highlights": [
+          "Built new features from high-fidelity designs, including notifications, sports UI and geofencing",
+          "Deployed via CI/CD and released to the app stores",
+          "Kept parity between the web and mobile apps"
+        ]
+      },
+      "swarm": {
+        "company": "SwarmOnline",
+        "role": "Lead Mobile Developer",
+        "dates": "2020 - 2021",
+        "highlights": [
+          "Sole mobile engineer from client pitch through to delivery",
+          "Built MVP apps in React Native and React web for multiple clients",
+          "Managed scheduling, estimates, and client communication"
+        ]
+      },
+      "voxsio": {
+        "company": "Voxsio",
+        "role": "Frontend Developer",
+        "dates": "2018 - 2020",
+        "highlights": [
+          "Sole frontend engineer on an AI-powered mental health app",
+          "Owned the UI, data handling, and Firebase architecture",
+          "Shipped a React Native app to iOS and Android; ran user research"
+        ]
+      }
+    }
+  },
+  "afterHours": {
+    "metadataTitle": "After Hours — Jemma Johnston",
+    "metadataDescription": "Personal projects Jemma Johnston has built in her own time.",
+    "eyebrow": "After Hours",
+    "title": "Personal projects",
+    "visitSite": "Visit site",
+    "opensInNewTab": "(opens in a new tab)",
+    "projects": {
+      "stow": {
+        "name": "Stow community website",
+        "description": "The website for the town where I live, built in squarespace as a volunteer for the local community.",
+        "imageAlt": "Stow & Fountainhall logo over a photo of the village church among autumn trees"
+      },
+      "bothan": {
+        "name": "Bothan",
+        "description": "A mobile app for finding bothies, the remote, free-to-use shelters for hikers and travellers in the UK and Ireland. Built with Expo, Expo Router and NativeWind. Just getting started."
+      }
+    }
+  },
+  "contactForm": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Enter a valid email address",
+    "messageRequired": "Message is required",
+    "mailSubject": "Portfolio contact from {name}",
+    "mailBody": "{message}\n\n— {name} ({email})",
+    "thanks": "Thanks for reaching out — your email client should have opened with your message ready to send."
+  }
+}
